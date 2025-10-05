@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is building and deploying
 on:
   push:
     branches:
-    - release
+    - gh-pages
 jobs:
   Build:
     runs-on: windows-2025
