@@ -8,10 +8,10 @@ import {
 export default defineConfigWithVueTs(
   pluginVue.configs['flat/recommended'],
   vueTsConfigs.recommendedTypeChecked,
-  pluginStylistic.configs['recommended'],
+  pluginStylistic.configs.recommended,
   {
     rules: {
-      'stylistic/arrow-parens': 'error',
+      '@stylistic/arrow-parens': 'error',
     },
   },
   {
@@ -25,5 +25,4 @@ export default defineConfigWithVueTs(
       'vue/require-default-prop': 'off',
     },
   },
-
 )

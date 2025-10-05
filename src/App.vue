@@ -30,29 +30,49 @@ import InputNumber from './components/InputNumber.vue'
   </div>
   <div class="row row-cols-auto">
     <div class="col m-3">
-      <label class="form-label">Cruise Altitude</label>
-      <div class="input-group">
-        <InputNumber
-          :min="0"
-          :step="100"
-          :default-val="36000"
-        />
-        <span class="input-group-text">ft</span>
+      <div class="mb-3">
+        <label class="form-label">Cruise Altitude</label>
+        <div class="input-group">
+          <InputNumber
+            :min="0"
+            :step="100"
+            :default="36000"
+          />
+          <span class="input-group-text">ft</span>
+        </div>
       </div>
-    </div>
-    <div class="col m-3">
-      <label class="form-label">Ideal Angle</label>
-      <div class="input-group">
-        <InputNumber
-          :default-val="3"
-          :min="0"
-          :max="90"
-          :step=".5"
-          :exclusive-min="true"
-          :exclusive-max="true"
-        />
-        <span class="input-group-text">&deg;</span>
+      <div class="mb-3">
+        <label class="form-label">Ideal Angle</label>
+        <div class="input-group">
+          <InputNumber
+            :min="0"
+            :max="90"
+            :step=".5"
+            :default="3"
+            :exclusive-min="true"
+            :exclusive-max="true"
+          />
+          <span class="input-group-text">&deg;</span>
+        </div>
       </div>
+      <div class="mb-3">
+        <label class="form-label">Wind</label>
+        <div class="input-group">
+          <InputNumber
+            :min="0"
+            :max="360"
+          />
+          <span class="input-group-text">@</span>
+          <InputNumber
+            :min="0"
+            :max="200"
+            :step="1"
+            :default="0"
+          />
+          <span class="input-group-text">kt</span>
+        </div>
+      </div>
+      <div class="col m-3" />
     </div>
   </div>
 </div>
