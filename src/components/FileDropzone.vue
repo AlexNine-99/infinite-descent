@@ -2,10 +2,14 @@
 import { ref } from 'vue'
 import { useFileValidation } from '../composables/useFileValidation'
 
-const props = defineProps<{
+defineProps<{
   fileValidation: ReturnType<typeof useFileValidation>
 }>()
-const { handleFileList } = props.fileValidation
+
+const emit = defineEmits<{
+  drop: [files: FileList]
+}>()
+
 const dragging = ref(false)
 
 function handleDrop(ev: DragEvent): void {
@@ -13,7 +17,7 @@ function handleDrop(ev: DragEvent): void {
   if (!ev.dataTransfer) {
     return
   }
-  handleFileList(ev.dataTransfer.files)
+  emit('drop', ev.dataTransfer.files)
 }
 
 // prevent browser from opening dropped files

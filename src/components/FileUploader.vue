@@ -27,7 +27,10 @@ function handleFileSelection(ev: InputElmEvent): void {
 </script> 
 
 <template>
-<FileDropzone :file-validation="fileValidation">
+<FileDropzone
+  :file-validation="fileValidation" 
+  @drop="(files) => fileValidation.handleFileList(files)"
+>
   <input
     ref="input"
     type="file"
