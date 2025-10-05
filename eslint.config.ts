@@ -65,6 +65,7 @@ export default defineConfig([
           max: 1
         }
       }],
+      'vue/require-default-prop': ['off'],
       '@stylistic/max-len': ['warn', {
         code: 80
       }],

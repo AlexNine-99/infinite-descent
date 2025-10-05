@@ -32,6 +32,7 @@ import InputNumber from './components/InputNumber.vue'
         <InputNumber
           :min="0"
           :step="100"
+          :default-val="36000"
         />
         <span class="input-group-text">ft</span>
       </div>
@@ -40,9 +41,10 @@ import InputNumber from './components/InputNumber.vue'
       <label class="form-label">Ideal Angle</label> 
       <div class="input-group">
         <InputNumber
+          :default-val="3"
           :min="0"
           :max="90"
-          :step="100"
+          :step=".5"
           :exclusive-min="true"
           :exclusive-max="true"
         />

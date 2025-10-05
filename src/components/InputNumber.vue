@@ -26,7 +26,8 @@ const num = ref(defaultVal)
 function handleInput(ev: InputElmEvent): void {
   const val = ev.target.valueAsNumber
   if (isNaN(val)) {
-    return // no need to
+    num.value = undefined
+    return
   }
   maybeUpdateNum(val)
   if (num.value) {
