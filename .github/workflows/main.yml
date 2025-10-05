@@ -1,0 +1,13 @@
+on:
+  push:
+    branches:
+    - release
+
+jobs:
+  Build:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
