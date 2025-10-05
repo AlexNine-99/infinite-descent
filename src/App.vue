@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import FileUploader from '@/components/FileUploader.vue'
-import AngleSelector from './components/AngleSelector.vue'
-
-// <comment for sake of commit ability 2>
+import AngleSelector from '@/components/AngleSelector.vue'
 </script>
  
 <template>

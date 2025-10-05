@@ -16,6 +16,7 @@ function handleDrop(ev: DragEvent): void {
   handleFileList(ev.dataTransfer.files)
 }
 
+// prevent browser from opening dropped files
 window.addEventListener('dragover', (ev) => ev.preventDefault())
 window.addEventListener('drop', (ev) => ev.preventDefault())
 </script>
@@ -27,6 +28,7 @@ window.addEventListener('drop', (ev) => ev.preventDefault())
     'card': true,
     'border-light-subtle': true,
     'bg-light-subtle': dragging,
+    // prevent moving cursor into child elements from ending drag period
     'no-child-drag': dragging,
     'bg-dark-subtle': !dragging
   }"
@@ -35,12 +37,12 @@ window.addEventListener('drop', (ev) => ev.preventDefault())
   @dragleave="dragging = false"
   @drop.prevent="handleDrop"
 >
-  <slot />
+  <slot /> <!-- button to open picker, etc. -->
 </div>
 </template>
 
 <style lang="scss" scoped>
 .no-child-drag > * {
-  pointer-events: none;
+  pointer-events: none; // prevent firing of 'dragleave'
 }
 </style>

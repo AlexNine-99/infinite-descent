@@ -7,7 +7,7 @@ const angle = ref(3)
 function handleInput(ev: InputElmEvent): void {
   const val = ev.target.valueAsNumber
   if (isNaN(val)) {
-    return
+    return // should just mean it was left blank
   }
   if (val > 0 && val < 90) {
     angle.value = val
