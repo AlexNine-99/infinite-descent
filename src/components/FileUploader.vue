@@ -24,11 +24,11 @@ function handleFileSelection(ev: InputElmEvent): void {
     handleFileList(ev.target.files)
   }
 }
-</script> 
+</script>
 
 <template>
 <FileDropzone
-  :file-validation="fileValidation" 
+  :file-validation="fileValidation"
   @drop="(files) => fileValidation.handleFileList(files)"
 >
   <input
@@ -52,7 +52,7 @@ function handleFileSelection(ev: InputElmEvent): void {
         class="m-0 text-danger"
       >
         {{ capitalizeFirst(validationResult.error) }}!
-      </p>  
+      </p>
     </span>
   </div>
 </FileDropzone>

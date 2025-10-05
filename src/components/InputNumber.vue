@@ -2,26 +2,23 @@
 import type { InputElmEvent } from '@/util/types'
 import { ref } from 'vue'
 
-interface Props {
-  min?: number
-  max?: number
-  defaultVal?: number
-  step?: number
-  exclusiveMin?: boolean
-  exclusiveMax?: boolean
-} 
+const props = withDefaults(
+  defineProps<{
+    min?: number
+    max?: number
+    exclusiveMin?: boolean
+    exclusiveMax?: boolean
+    step?: number
+    default?: number
+    format?: Intl.NumberFormat
+  }>(),
+  {
+    exclusiveMin: false,
+    exclusiveMax: false,
+  },
+)
 
-const { 
-  min,
-  max,
-  defaultVal,
-  step,
-  exclusiveMin = false,
-  exclusiveMax = false 
-} 
-  = defineProps<Props>()
-
-const num = ref(defaultVal)
+const num = ref(props.default)
 
 function handleInput(ev: InputElmEvent): void {
   const val = ev.target.valueAsNumber
@@ -31,15 +28,15 @@ function handleInput(ev: InputElmEvent): void {
   }
   maybeUpdateNum(val)
   if (num.value) {
-    ev.target.value = num.value.toString()
+    ev.target.value = props.format ? props.format.format(num.value) : num.value.toString()
   }
 }
 
 function maybeUpdateNum(val: number): void {
-  if (min && (exclusiveMin ? val <= min : val < min)) {
+  if (props.min && (props.exclusiveMin ? val <= props.min : val < props.min)) {
     return
   }
-  if (max && (exclusiveMax ? val >= max : val > max)) {
+  if (props.max && (props.exclusiveMax ? val >= props.max : val > props.max)) {
     return
   }
   num.value = val
@@ -50,7 +47,7 @@ function maybeUpdateNum(val: number): void {
 <input
   class="form-control"
   type="number"
-  :value="defaultVal"
+  :value="props.default"
   :min="min"
   :max="max"
   :step="step"

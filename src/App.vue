@@ -6,7 +6,10 @@ import InputNumber from './components/InputNumber.vue'
 <template>
 <nav class="navbar bg-indigo">
   <div class="container-fluid">
-    <a href="#" class="navbar-brand">Infinite Descent</a>
+    <a
+      href="#"
+      class="navbar-brand"
+    >Infinite Descent</a>
   </div>
 </nav>
 <div class="container py-4 px-3 mx-auto">
@@ -38,7 +41,7 @@ import InputNumber from './components/InputNumber.vue'
       </div>
     </div>
     <div class="col m-3">
-      <label class="form-label">Ideal Angle</label> 
+      <label class="form-label">Ideal Angle</label>
       <div class="input-group">
         <InputNumber
           :default-val="3"
@@ -52,7 +55,7 @@ import InputNumber from './components/InputNumber.vue'
       </div>
     </div>
   </div>
-</div> 
+</div>
 </template>
 
 <style lang="scss">
