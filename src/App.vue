@@ -13,7 +13,7 @@ import InputRestriction from './components/InputRestriction.vue'
       >Infinite Descent</a>
     </div>
   </nav>
-  <div class="container py-4 px-3 mx-auto">
+  <div class="container py-4 px-0 mx-auto">
     <div class="row row-cols-auto align-items-center mb-3">
       <div class="col mx-3 mb-3">
         <div style="max-width: 550px">
@@ -80,7 +80,7 @@ import InputRestriction from './components/InputRestriction.vue'
         </div>
       </div>
       <div class="col m-3">
-        <InputRestriction />
+        <!--<InputRestriction />-->
       </div>
     </div>
   </div>
@@ -93,5 +93,9 @@ import InputRestriction from './components/InputRestriction.vue'
 
 .bg-indigo {
   background-color: $indigo;
+}
+
+* {
+  // outline: 1px solid red;
 }
 </style>
